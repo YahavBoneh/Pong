@@ -24,7 +24,7 @@ def key_up_events(event, left_paddle, right_paddle):
         left_paddle.moving_down = False
 
 
-def check_events(left_paddle, right_paddle):
+def process_events(left_paddle, right_paddle):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -34,8 +34,9 @@ def check_events(left_paddle, right_paddle):
             key_up_events(event, left_paddle, right_paddle)
 
 
-def update_screen(screen, settings, left_paddle, right_paddle):
+def update_screen(screen, settings, left_paddle, right_paddle, ball):
     screen.fill(settings.screen.color)
     left_paddle.draw()
     right_paddle.draw()
+    ball.draw()
     pygame.display.flip()
